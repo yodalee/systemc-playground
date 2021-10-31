@@ -1,16 +1,12 @@
 #include "counter.h"
 
-void counter::run_counter() {
+void Counter::run_counter() {
   while (true) {
-    if (start) {
-      cnt = 0;
-    } else {
-      if (cnt < limit) {
-        cnt++;
-      }
+    int val = in->read();
+    std::cout << "val: " << val << std::endl;
+    for (int cnt = 0; cnt < val; ++cnt) {
+      out->write(cnt);
+      wait(1, SC_NS);
     }
-    full = (cnt == limit);
-    std::cout << "counter: " << cnt << " full: " << full << std::endl;
-    wait(1, SC_NS);
   }
 }
