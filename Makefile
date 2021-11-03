@@ -3,5 +3,5 @@ all: main
 
 CXXFLAGS = -lsystemc
 
-main: main.cpp counter.cpp
+main: main.cpp
 	$(CXX) $(CXXFLAGS) $^ -o $@

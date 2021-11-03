@@ -3,8 +3,9 @@
 
 #include <systemc>
 
+template<int kWidth = 32>
 SC_MODULE(Drain) {
-  sc_fifo_in<int> in;
+  sc_fifo_in<sc_uint<kWidth>> in;
 
   void drain() {
     while (true) {
